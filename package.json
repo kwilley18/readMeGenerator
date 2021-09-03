@@ -1,0 +1,17 @@
+{
+  "name": "readmegenerator",
+  "version": "1.0.0",
+  "description": "Application where users use the command-line to generate a README file for any github directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kristian Willey",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "inquirer": "^8.1.2"
+  }
+}
