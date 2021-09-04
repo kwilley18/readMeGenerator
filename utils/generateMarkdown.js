@@ -1,7 +1,41 @@
 function generateMarkdown(userResponses, userInfo) {
 
-  //let readMeTitle = '## Table of Contents'; 
-  let readMeInfo = `#${userResponses.title}`; 
+
+  // Creates a table of contents 
+  let tableOfContents = `## Table of Contents`; 
+
+  if(userResponses.installation !== ''){
+    tableOfContents+= `
+    * [Installation](#installation)`
+  }; 
+
+  if(userResponses.usage !== ''){
+    tableOfContents+= ` 
+    * [Usage](#usage)`
+  };  
+  
+  if(userResponses.contribution !== ''){
+    tableOfContents+= ` 
+    * [Contribution](#contribution)`
+  };   
+  
+  if(userResponses.tests!== ''){
+    tableOfContents+= ` 
+    * [Tests](#tests)`
+  }; 
+
+
+  // Collects all of the user input 
+  let readMeInfo = `
+  # ${userResponses.title}
+  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor)
+  
+  Check out the badges hosted by [shields.io](https://shields.io/).
+  
+  
+  `; 
+
+
 
   if(userResponses.description !==''){
     // readMeTitle+= '##Installation'; 
@@ -12,8 +46,12 @@ function generateMarkdown(userResponses, userInfo) {
        
     ## Description 
        
-    ${userResponses.description}`; 
+    ${userResponses.description}
+    
+    `; 
    }
+
+   readMeInfo += tableOfContents;
 
   if(userResponses.installation !==''){
    // readMeTitle+= '##Installation'; 
@@ -33,6 +71,7 @@ function generateMarkdown(userResponses, userInfo) {
     // readMeTitle+= '##Installation'; 
  
      readMeInfo+=  
+
      `
        
     ## Usage
@@ -73,10 +112,20 @@ function generateMarkdown(userResponses, userInfo) {
      
      `
        
-    ## Questions 
+    ## Questions??? 
 
     If you have any questions please contact me with the info below
-    https://github.com/${userResponses.username}`; 
+
+    Github: https://github.com/${userResponses.username}`; 
+   }
+
+   if(userResponses.email !== null){
+     readMeInfo +=
+
+     `
+    Email: ${userResponses.email}
+     `; 
+
    }
 
   
