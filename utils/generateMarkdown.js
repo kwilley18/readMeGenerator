@@ -24,7 +24,11 @@ function generateMarkdown(userResponses, userInfo) {
     * [Tests](#tests)`
   }; 
 
-
+  if(userResponses.license!== ''){
+    tableOfContents+= ` 
+    * [License](#license)`
+  }; 
+  
   // Collects all of the user input 
   let readMeInfo = `
   # ${userResponses.title}
