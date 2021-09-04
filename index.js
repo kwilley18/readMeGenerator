@@ -21,6 +21,23 @@ const fileQuestions = [
         }
     },
 
+    // email address
+    {
+        type: 'input', 
+        message: "Please enter email address",
+        name: 'email', 
+        validate: emailAddress => {
+           //for(var i = 0; i < emailAddress.length; i++){
+                if( emailAddress){
+                    return true;  
+                }
+                else{
+                    return false; 
+                }
+           // }
+        }
+    },
+
     // name of project 
     {
         type: 'input', 
@@ -34,6 +51,20 @@ const fileQuestions = [
                 console.log("Project name must not be blank"); 
                 return false; 
             }
+        }
+    },
+
+    // github repo 
+    {
+        type: 'input', 
+        name: 'repo', 
+        message: "What is the name of your github repo?",
+        default: 'README GENERATOR', 
+        validate: answer => {
+            if(answer.length < 1){
+                return console.log("Not a valid github repo name"); 
+            }
+            return true; 
         }
     },
 
